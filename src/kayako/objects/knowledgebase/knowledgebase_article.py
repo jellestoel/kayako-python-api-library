@@ -53,8 +53,8 @@ class KnowledgebaseArticle(KayakoObject):
 	__required_add_parameters__ = ['subject', 'contents', 'creatorid']
 	__add_parameters__ = ['subject', 'contents', 'creatorid', 'articlestatus', 'isfeatured', 'allowcomments', 'categoryid']
 
-	__required_save_parameters__ = ['subject', 'contents', 'creatorid']
-	__save_parameters__ = ['subject', 'contents', 'creatorid', 'articlestatus', 'isfeatured', 'allowcomments', 'categoryid']
+	__required_save_parameters__ = ['subject', 'contents', 'creatorid', 'editedstaffid']
+	__save_parameters__ = ['subject', 'contents', 'creatorid', 'articlestatus', 'isfeatured', 'allowcomments', 'categoryid', 'editedstaffid']
 
 	@classmethod
 	def _parse_knowledgebase_article(cls, api, knowledgebase_article_tree):
