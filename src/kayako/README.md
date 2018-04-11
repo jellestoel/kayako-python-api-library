@@ -160,134 +160,136 @@ Add a Ticket and a TicketNote::
 
 ``api.create(Object, *args, **kwargs)``
 
-    Create and return a new ``KayakoObject`` of the type given passing in args and kwargs.
+Create and return a new ``KayakoObject`` of the type given passing in args and kwargs.
     
 ``api.get_all(Object, *args, **kwargs)``
 
-    *Get all ``KayakoObjects`` of the given type.*
-    *In most cases, all items are returned.*
+*Get all ``KayakoObjects`` of the given type.*
+*In most cases, all items are returned.*
     
-    e.x. ::
-    
-        >>> api.get_all(Department)
-        [<Department....>, ....]
+e.x. ::
 
-    *Special Cases:*
-    
-        ``api.get_all(User, marker=1, maxitems=1000)``
-            Return all ``Users`` from userid ``marker`` with up to ``maxitems`` 
-            results (max 1000.)
-            
-        ``api.get_all(Ticket, departmentid, ticketstatusid=-1, ownerstaffid=-1, userid=-1)``
-            Return all ``Tickets`` filtered by the required argument 
-            ``departmentid`` and by the optional keyword arguments.
-            
-        ``api.get_all(TicketAttachment, ticketid)``
-            Return all ``TicketAttachments`` for a ``Ticket`` with the given ID.
-            
-        ``api.get_all(TicketPost, ticketid)``
-            Return all ``TicketPosts`` for a ``Ticket`` with the given ID.
-            
-        ``api.get_all(TicketCustomField, ticketid)``
-        	Return all ``TicketCustomFieldGroups`` for a ``Ticket`` with the given ID.
-        	Returns a ``list`` of ``TicketCustomFieldGroups``.
-        	
-        ``api.get_all(TicketCount)``
-        	Returns only one object: ``TicketCount`` not a ``list`` of objects.
+	>>> api.get_all(Department)
+	[<Department....>, ....]
+
+*Special Cases:*
+
+``api.get_all(User, marker=1, maxitems=1000)``
+Return all ``Users`` from userid ``marker`` with up to ``maxitems`` 
+results (max 1000.)
+
+``api.get_all(Ticket, departmentid, ticketstatusid=-1, ownerstaffid=-1, userid=-1)``
+Return all ``Tickets`` filtered by the required argument 
+``departmentid`` and by the optional keyword arguments.
+
+``api.get_all(TicketAttachment, ticketid)``
+Return all ``TicketAttachments`` for a ``Ticket`` with the given ID.
+
+``api.get_all(TicketPost, ticketid)``
+Return all ``TicketPosts`` for a ``Ticket`` with the given ID.
+
+``api.get_all(TicketCustomField, ticketid)``
+Return all ``TicketCustomFieldGroups`` for a ``Ticket`` with the given ID.
+Returns a ``list`` of ``TicketCustomFieldGroups``.
+
+``api.get_all(TicketCount)``
+Returns only one object: ``TicketCount`` not a ``list`` of objects.
 
 ``api.filter(Object, args=(), kwargs={}, **filter)``
 
-	Gets all ``KayakoObjects`` matching a filter.
-        
-        e.x. ::
+Gets all ``KayakoObjects`` matching a filter.
 
-            >>> api.filter(Department, args=(2), module='tickets')
-            [<Department module='tickets'...>, <Department module='tickets'...>, ...]
+e.x. ::
+
+	>>> api.filter(Department, args=(2), module='tickets')
+	[<Department module='tickets'...>, <Department module='tickets'...>, ...]
             
 ``api.first(Object, args=(), kwargs={}, **filter)``
 
-	Returns the first ``KayakoObject`` found matching a given filter.
-        
-        e.x. ::
+Returns the first ``KayakoObject`` found matching a given filter.
 
-            >>> api.filter(Department, args=(2), module='tickets')
-            <Department module='tickets'>
+e.x. ::
+
+    >>> api.filter(Department, args=(2), module='tickets')
+    <Department module='tickets'>
 
 ``api.get(Object, *args)``
 
-    *Get a ``KayakoObject`` of the given type by ID.*
+*Get a ``KayakoObject`` of the given type by ID.*
     
-    e.x. ::
+e.x. ::
 
-        >>> api.get(User, 112359)
-        <User (112359)....>
+	>>> api.get(User, 112359)
+	<User (112359)....>
     
-    *Special Cases:*
+*Special Cases:*
         
-        ``api.get(TicketAttachment, ticketid, attachmentid)``
-            Return a ``TicketAttachment`` for a ``Ticket`` with the given ``Ticket``
-            ID and ``TicketAttachment`` ID.  Getting a specific ``TicketAttachment``
-            gets a ``TicketAttachment`` with the actual attachment contents.
-        
-        ``api.get(TicketPost, ticketid, ticketpostid)``
-            Return a ``TicketPost`` for a ticket with the given ``Ticket`` ID and
-            ``TicketPost`` ID.
-                
-        ``api.get(TicketNote, ticketid, ticketnoteid)``
-            Return a ``TicketNote`` for a ticket with the given ``Ticket`` ID and
-            ``TicketNote`` ID.
+``api.get(TicketAttachment, ticketid, attachmentid)``
+Return a ``TicketAttachment`` for a ``Ticket`` with the given ``Ticket``
+ID and ``TicketAttachment`` ID.  Getting a specific ``TicketAttachment``
+gets a ``TicketAttachment`` with the actual attachment contents.
+
+``api.get(TicketPost, ticketid, ticketpostid)``
+Return a ``TicketPost`` for a ticket with the given ``Ticket`` ID and
+``TicketPost`` ID.
+
+``api.get(TicketNote, ticketid, ticketnoteid)``
+Return a ``TicketNote`` for a ticket with the given ``Ticket`` ID and
+``TicketNote`` ID.
             
 **Object persistence methods**
 
 ``kayakoobject.add()``
-    *Adds the instance to Kayako.*
+*Adds the instance to Kayako.*
+
 ``kayakoobject.save()``
-    *Saves an existing object the instance to Kayako.*
+*Saves an existing object the instance to Kayako.*
+
 ``kayakoobject.delete()``
-    *Removes the instance from Kayako*
+*Removes the instance from Kayako*
     
 These methods can raise exceptions:
 
-    Raises ``KayakoRequestError`` if one of the following is true:
-        - The action is not available for the object
-        - A required object parameter is UnsetParameter or None (add/save)
-        - The API URL cannot be reached
-        
-    Raises ``KayakoResponseError`` if one of the following is true:
-        - There is an error with the request (not HTTP 200 Ok)
-        - The XML is in an unexpected format indicating a possible Kayako version mismatch
+Raises ``KayakoRequestError`` if one of the following is true:
+- The action is not available for the object
+- A required object parameter is UnsetParameter or None (add/save)
+- The API URL cannot be reached
+
+Raises ``KayakoResponseError`` if one of the following is true:
+- There is an error with the request (not HTTP 200 Ok)
+- The XML is in an unexpected format indicating a possible Kayako version mismatch
         
 **Misc API Calls**
 
 ``api.ticket_search(query, ticketid=False, contents=False, author=False, email=False, creatoremail=False, fullname=False, notes=False, usergroup=False, userorganization=False, user=False, tags=False)``
-	*Search tickets with a query in the specified fields*
+*Search tickets with a query in the specified fields*
         
 ``api.ticket_search_full(query)``
-    *Shorthand for ``api.ticket_search.`` Searches all fields.
+*Shorthand for ``api.ticket_search.`` Searches all fields.
         
 **Changes**
 
-	*1.1.6*
-		- Added ``api.ticket_search_full`` shorthand function for searching all fields in ``api.ticket_search``
+*1.1.6*
+- Added ``api.ticket_search_full`` shorthand function for searching all fields in ``api.ticket_search``
 
-    *1.1.5*
-    
-		- Fix ``Staff.__str__``.
-		- ``Ticket.__str__`` includes ``displayid``.
-		- ``TicketPost.subject`` is not returned in any responses, so it is not always available, removed it from ``TicketPost.__str__``.
+*1.1.5*
 
-    *1.1.4*
-	
-		- Requires Kayako 4.01.240, use 1.1.3 for Kayako 4.01.204
-		- ``TicketNote`` now supports get and delete
-		- Added ``api.ticket_search``, see Misc API Calls for details.
-		- Refactored ticket module into ticket package. This could cause problems
-		  if things were not imported like ``from kayako.objects import X``
-		- Added ``TicketCount`` object. Use ``api.get_all(TicketCount)`` to
-		  retrieve.
-		- Added ``TicketTimeTrack`` object. ``api.get_all(TicketTimeTrack, ticket.id)`` or
-		  ``api.get(TicketTimeTrack, ticket.id, ticket_time_track_id)``
-		- Added ``Ticket.timetracks``
+- Fix ``Staff.__str__``.
+- ``Ticket.__str__`` includes ``displayid``.
+- ``TicketPost.subject`` is not returned in any responses, so it is not always available, removed it from ``TicketPost.__str__``.
+
+*1.1.4*
+
+- Requires Kayako 4.01.240, use 1.1.3 for Kayako 4.01.204
+- ``TicketNote`` now supports get and delete
+- Added ``api.ticket_search``, see Misc API Calls for details.
+- Refactored ticket module into ticket package. This could cause problems
+  if things were not imported like ``from kayako.objects import X``
+- Added ``TicketCount`` object. Use ``api.get_all(TicketCount)`` to
+  retrieve.
+- Added ``TicketTimeTrack`` object. ``api.get_all(TicketTimeTrack, ticket.id)`` or
+  ``api.get(TicketTimeTrack, ticket.id, ticket_time_track_id)``
+- Added ``Ticket.timetracks``
 
 **Quick Reference**
 
