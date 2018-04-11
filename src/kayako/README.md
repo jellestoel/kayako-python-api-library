@@ -291,23 +291,22 @@ These methods can raise exceptions:
 
 **Quick Reference**
 
-================= ====================================================================== ========================= ======= ======= =====================
-Object            Get All                                                                Get                       Add     Save    Delete
-================= ====================================================================== ========================= ======= ======= =====================
-Department        Yes                                                                    Yes                       Yes     Yes     Yes
-Staff             Yes                                                                    Yes                       Yes     Yes     Yes
-StaffGroup        Yes                                                                    Yes                       Yes     Yes     Yes
-Ticket            departmentid, ticketstatusid= -1, ownerstaffid= -1, userid= -1         Yes                       Yes     Yes     Yes
-TicketAttachment  ticketid                                                               ticketid, attachmentid    Yes     No      Yes
-TicketCustomField ticketid                                                               No                        No      No      No
-TicketCount       Yes                                                                    No                        No      No      No
-TicketNote        ticketid                                                               Yes                       Yes     No      Yes
-TicketPost        ticketid                                                               ticketid, postid          Yes     No      Yes
-TicketPriority    Yes                                                                    Yes                       No      No      No
-TicketStatus      Yes                                                                    Yes                       No      No      No
-TicketTimeTrack   ticketid                                                               ticketid, id              Yes     No      Yes
-TicketType        Yes                                                                    Yes                       No      No      No
-User              marker=1, maxitems=1000                                                Yes                       Yes     Yes     Yes
-UserGroup         Yes                                                                    Yes                       Yes     Yes     Yes
-UserOrganization  Yes                                                                    Yes                       Yes     Yes     Yes
-================= ====================================================================== ========================= ======= ======= =====================
+| Object           | Get All                                                        | Get                    | Add    | Save   | Delete |
+|------------------|----------------------------------------------------------------|------------------------|--------|--------|--------|
+|Department        | Yes                                                            | Yes                    | Yes    | Yes    | Yes    |
+|Staff             | Yes                                                            | Yes                    | Yes    | Yes    | Yes    |
+|StaffGroup        | Yes                                                            | Yes                    | Yes    | Yes    | Yes    |
+|Ticket            | departmentid, ticketstatusid= -1, ownerstaffid= -1, userid= -1 | Yes                    | Yes    | Yes    | Yes    |
+|TicketAttachment  | ticketid                                                       | ticketid, attachmentid | Yes    | No     | Yes    |
+|TicketCustomField | ticketid                                                       | No                     | No     | No     | No     |
+|TicketCount       | Yes                                                            | No                     | No     | No     | No     |
+|TicketNote        | ticketid                                                       | Yes                    | Yes    | No     | Yes    |
+|TicketPost        | ticketid                                                       | ticketid, postid       | Yes    | No     | Yes    |
+|TicketPriority    | Yes                                                            | Yes                    | No     | No     | No     |
+|TicketStatus      | Yes                                                            | Yes                    | No     | No     | No     |
+|TicketTimeTrack   | ticketid                                                       | ticketid, id           | Yes    | No     | Yes    |
+|TicketType        | Yes                                                            | Yes                    | No     | No     | No     |
+|User              | marker=1, maxitems=1000                                        | Yes                    | Yes    | Yes    | Yes    |
+|UserGroup         | Yes                                                            | Yes                    | Yes    | Yes    | Yes    |
+|UserOrganization  | Yes                                                            | Yes                    | Yes    | Yes    | Yes    |
+
