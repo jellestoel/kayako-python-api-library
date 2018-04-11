@@ -160,12 +160,11 @@ Add a Ticket and a TicketNote::
 
 ``api.create(Object, *args, **kwargs)``
 
-Create and return a new ``KayakoObject`` of the type given passing in args and kwargs.
+Creates and returns a new ``KayakoObject`` of the type given passing in args and kwargs.
     
 ``api.get_all(Object, *args, **kwargs)``
 
-*Get all ``KayakoObjects`` of the given type.*
-*In most cases, all items are returned.*
+*Gets all ``KayakoObjects`` of the given type. In most cases, all items are returned.*
     
 e.x. ::
 
@@ -175,24 +174,27 @@ e.x. ::
 *Special Cases:*
 
 ``api.get_all(User, marker=1, maxitems=1000)``
-Return all ``Users`` from userid ``marker`` with up to ``maxitems`` 
-results (max 1000.)
+
+Returns all ``Users`` from userid ``marker`` with up to ``maxitems`` results (max 1000.)
 
 ``api.get_all(Ticket, departmentid, ticketstatusid=-1, ownerstaffid=-1, userid=-1)``
-Return all ``Tickets`` filtered by the required argument 
-``departmentid`` and by the optional keyword arguments.
+
+Returns all ``Tickets`` filtered by the required argument ``departmentid`` and by the optional keyword arguments.
 
 ``api.get_all(TicketAttachment, ticketid)``
-Return all ``TicketAttachments`` for a ``Ticket`` with the given ID.
+
+Returns all ``TicketAttachments`` for a ``Ticket`` with the given ID.
 
 ``api.get_all(TicketPost, ticketid)``
-Return all ``TicketPosts`` for a ``Ticket`` with the given ID.
+
+Returns all ``TicketPosts`` for a ``Ticket`` with the given ID.
 
 ``api.get_all(TicketCustomField, ticketid)``
-Return all ``TicketCustomFieldGroups`` for a ``Ticket`` with the given ID.
-Returns a ``list`` of ``TicketCustomFieldGroups``.
+
+Returns all ``TicketCustomFieldGroups`` for a ``Ticket`` with the given ID. Returns a ``list`` of ``TicketCustomFieldGroups``.
 
 ``api.get_all(TicketCount)``
+
 Returns only one object: ``TicketCount`` not a ``list`` of objects.
 
 ``api.filter(Object, args=(), kwargs={}, **filter)``
@@ -215,7 +217,7 @@ e.x. ::
 
 ``api.get(Object, *args)``
 
-*Get a ``KayakoObject`` of the given type by ID.*
+*Returns a ``KayakoObject`` of the given type by ID.*
     
 e.x. ::
 
@@ -225,27 +227,29 @@ e.x. ::
 *Special Cases:*
         
 ``api.get(TicketAttachment, ticketid, attachmentid)``
-Return a ``TicketAttachment`` for a ``Ticket`` with the given ``Ticket``
-ID and ``TicketAttachment`` ID.  Getting a specific ``TicketAttachment``
-gets a ``TicketAttachment`` with the actual attachment contents.
+
+Returns a ``TicketAttachment`` for a ``Ticket`` with the given ``Ticket`` ID and ``TicketAttachment`` ID.  Getting a specific ``TicketAttachment`` returns a ``TicketAttachment`` with the actual attachment contents.
 
 ``api.get(TicketPost, ticketid, ticketpostid)``
-Return a ``TicketPost`` for a ticket with the given ``Ticket`` ID and
-``TicketPost`` ID.
+
+Returns a ``TicketPost`` for a ticket with the given ``Ticket`` ID and ``TicketPost`` ID.
 
 ``api.get(TicketNote, ticketid, ticketnoteid)``
-Return a ``TicketNote`` for a ticket with the given ``Ticket`` ID and
-``TicketNote`` ID.
+
+Returns a ``TicketNote`` for a ticket with the given ``Ticket`` ID and ``TicketNote`` ID.
             
 **Object persistence methods**
 
 ``kayakoobject.add()``
+
 *Adds the instance to Kayako.*
 
 ``kayakoobject.save()``
+
 *Saves an existing object the instance to Kayako.*
 
 ``kayakoobject.delete()``
+
 *Removes the instance from Kayako*
     
 These methods can raise exceptions:
@@ -262,10 +266,12 @@ Raises ``KayakoResponseError`` if one of the following is true:
 **Misc API Calls**
 
 ``api.ticket_search(query, ticketid=False, contents=False, author=False, email=False, creatoremail=False, fullname=False, notes=False, usergroup=False, userorganization=False, user=False, tags=False)``
+
 *Search tickets with a query in the specified fields*
         
 ``api.ticket_search_full(query)``
-*Shorthand for ``api.ticket_search.`` Searches all fields.
+
+*Shorthand for ``api.ticket_search.`` Searches all fields.*
         
 **Changes**
 
